@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /AGRINHO-Alan-1-TDS-GORI/
+  
+  # Remove .html extension
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^([^\.]+)$ $1.html [NC, L]
+</IfModule>
