@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte - Futuro Sustentável</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1F2937;
+            background-color: #F5F3F0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* NAVEGAÇÃO */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            color: #2D5016;
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: #2D5016;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #D97706;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 80px;
+            height: 100vh;
+            background: linear-gradient(135deg, #2D5016 0%, #1F3A0F 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(196, 167, 71, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #D97706;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #B45309;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 6rem 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #2D5016;
+            margin-bottom: 2rem;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .section-content img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CARDS */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #2D5016;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #1F3A0F;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            color: white;
+            margin: 0.5rem 0;
+        }
+
+        footer .credit {
+            color: #86EFAC;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* CORES PERSONALIZADAS */
+        :root {
+            --primary: #2D5016;
+            --secondary: #C4A747;
+            --accent: #D97706;
+            --background: #F5F3F0;
+            --foreground: #1F2937;
+        }
+
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+    </style>
+</head>
+<body>
+    <!-- NAVEGAÇÃO -->
+    <nav>
+        <div class="container">
+            <h1>🌾 Agro Forte</h1>
+            <div>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/agrinho-site.html">Início</a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/praticas-sustentaveis.html">Práticas</a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/tecnologia-verde.html">Tecnologia</a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/projetos-reais.html">Projetos</a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/como-ajudar.html">Ajudar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>Equilíbrio entre Produção e Meio Ambiente</p>
+            <button class="btn" onclick="scrollToSection('agro-forte')">Descubra Mais</button>
+        </div>
+    </section>
+
+    <!-- AGRO FORTE -->
+    <section id="agro-forte" class="bg-primary" style="background-color: #F5F3F0;">
+        <div class="container">
+            <h2>Agro Forte</h2>
+            <div class="section-content">
+                <div>
+                    <p>A agricultura moderna é a base de uma economia sustentável. Com tecnologia de ponta e práticas inovadoras, os agricultores de hoje garantem colheitas abundantes enquanto preservam o solo e os recursos naturais.</p>
+                    <p>Irrigação inteligente, uso eficiente de insumos e maquinário moderno são exemplos de como a tradição agrícola se encontra com a inovação tecnológica.</p>
+                    <ul style="margin: 1.5rem 0; list-style-position: inside;">
+                        <li>✓ Tecnologia de Precisão</li>
+                        <li>✓ Irrigação Eficiente</li>
+                        <li>✓ Manejo Sustentável</li>
+                    </ul>
+                </div>
+                <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=500&h=400&fit=crop" alt="Agro Forte">
+            </div>
+        </div>
+    </section>
+
+    <!-- SUSTENTABILIDADE -->
+    <section id="sustentabilidade" style="background-color: #FFFFFF;">
+        <div class="container">
+            <h2>Sustentabilidade</h2>
+            <div class="section-content">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e938286db4c?w=500&h=400&fit=crop" alt="Sustentabilidade">
+                <div>
+                    <p>Proteger o meio ambiente não é apenas uma responsabilidade, é um investimento no futuro. Energias renováveis, conservação de água e biodiversidade são pilares essenciais da agricultura sustentável.</p>
+                    <p>Cada decisão no campo impacta o planeta. Escolher práticas sustentáveis significa garantir que as próximas gerações também possam colher os frutos da terra.</p>
+                    <ul style="margin: 1.5rem 0; list-style-position: inside;">
+                        <li>✓ Energia Solar e Eólica</li>
+                        <li>✓ Conservação de Água</li>
+                        <li>✓ Proteção da Biodiversidade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUILÍBRIO -->
+    <section id="equilibrio" style="background-color: #F5F3F0;">
+        <div class="container">
+            <h2>O Equilíbrio Perfeito</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Produção forte e sustentabilidade não são opostos. Eles caminham juntos em direção a um futuro próspero.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🚜 Inovação</h3>
+                    <p>Tecnologia a serviço da natureza. Máquinas inteligentes que respeitam o solo.</p>
+                </div>
+                <div class="card">
+                    <h3>🌱 Responsabilidade</h3>
+                    <p>Cada ação conta. Decisões conscientes que beneficiam o planeta e a comunidade.</p>
+                </div>
+                <div class="card">
+                    <h3>🌍 Futuro</h3>
+                    <p>Gerações futuras merecem um planeta saudável. Investimos em um amanhã melhor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORAR MAIS -->
+    <section style="background-color: #FFFFFF;">
+        <div class="container">
+            <h2 style="text-align: center;">Explore Mais Sobre Sustentabilidade</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">Descubra como podemos transformar o futuro, mantendo a força da agricultura e o respeito ao meio ambiente.</p>
+            
+            <div class="cards-grid">
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/praticas-sustentaveis.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <h3>🌾 Práticas Sustentáveis</h3>
+                        <p>Técnicas que transformam a agricultura</p>
+                    </div>
+                </a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/tecnologia-verde.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <h3>⚡ Tecnologia Verde</h3>
+                        <p>Inovações para um futuro melhor</p>
+                    </div>
+                </a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/projetos-reais.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <h3>🌳 Projetos Reais</h3>
+                        <p>Histórias de sucesso inspiradoras</p>
+                    </div>
+                </a>
+                <a href="https://alanpinheiro044.github.io/AGRINHO-Alan-1-TDS-GORI/como-ajudar.html" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <h3>🤝 Como Ajudar</h3>
+                        <p>Ações que você pode fazer hoje</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 - Agro Forte, Futuro Sustentável</p>
+        <p class="credit">Criado por Alan Pinheiro da Silva | Desenvolvido com Manus AI</p>
+    </footer>
+
+    <script>
+        // Scroll suave para seções
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Animação ao carregar
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
